@@ -3,7 +3,7 @@ import Header from './Header';
 import Board from './Board';
 import Reset from './Reset';
 
-import { View, Text } from 'react-native';
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native';
 
 const PLAYERX = "Player 1 - Xs";
 const PLAYER0 = "Player 2 - 0s";
@@ -57,8 +57,22 @@ export default class GameScreen extends React.Component {
         <Board values={this.state.values}  appClick={this.appClick}/>
         <Text style={{fontSize: 25, padding: 30, textAlign:'center'}}>Number of moves: {this.state.moves}</Text>
         <Reset resetClick={this.resetClick}></Reset>
+        <TouchableHighlight onPress={() => this.props.navigation.goBack()} >
+            <Text style={styles.button}>Go Back</Text>
+        </TouchableHighlight>
       </View>
     );
   }
 
 }
+
+const styles = StyleSheet.create({
+  button: {
+    borderWidth: 1,
+    borderColor: 'black',
+    backgroundColor: '#eee',
+    fontSize: 25,
+    textAlign: 'center',
+    padding: 10
+  }
+})
