@@ -13,7 +13,7 @@ export default class Square extends React.Component {
   }
   render() {
     return(
-      <TouchableHighlight style={styles.square} onPress={this.squareClick} className={this.props.value === "-" ? "clickable" : "no_clickable"}>
+      <TouchableHighlight style={styles.square} onPress={this.squareClick} disabled={this.props.value !== "-"}>
         <Text style={styles.squareText}>{this.props.value}</Text>
       </TouchableHighlight>
     );
